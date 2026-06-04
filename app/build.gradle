@@ -19,8 +19,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-  
-   
+  implementation 'org.projectlombok:lombok:1.18.46'
+implementation 'jakarta.persistence:jakarta.persistence-api:4.0.0-M4'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
