@@ -1,5 +1,6 @@
 package claimservice.entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,7 +14,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Cliam {
+@Nullable
+public class Claim {
 
     @Id
     @GeneratedValue
