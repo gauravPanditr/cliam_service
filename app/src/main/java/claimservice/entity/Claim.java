@@ -1,43 +1,41 @@
 package claimservice.entity;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
+@Table(name = "claims")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Nullable
 public class Claim {
 
     @Id
-    @GeneratedValue
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String userId;
-    private String policyId;
+    private Long userId;
 
-    @Column(columnDefinition = "TEXT")
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "vehicle_id")
+    private Vehicle vehicle;
+
+    @ManyToOne
+    @JoinColumn(name = "policy_id")
+    private Policy policy;
 
     private LocalDate incidentDate;
+
     private String incidentLocation;
 
-    @Enumerated(EnumType.STRING)
-    private ClaimStatus status;
+    @Column(length = 1000)
+    private String description;
+
+    private String status;
 
     private LocalDateTime createdAt;
-
-    @PrePersist
-    public void prePersist() {
-        createdAt = LocalDateTime.now();
-        status = ClaimStatus.SUBMITTED;
-    }
 }
