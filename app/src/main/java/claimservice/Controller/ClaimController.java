@@ -1,7 +1,9 @@
 package claimservice.Controller;
 
-import claimservice.dto.CreateClaimRequest;
-import claimservice.dto.ClaimResponse;
+
+import claimservice.dto.ClaimRequestDto;
+
+import claimservice.dto.ClaimResponseDto;
 import claimservice.service.ClaimService;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +18,7 @@ public class ClaimController {
     }
 
     @PostMapping("/claims")
-    public ClaimResponse createClaim(@RequestBody CreateClaimRequest request) {
+    public ClaimResponseDto createClaim(@RequestBody ClaimRequestDto request) {
         return claimService.createClaim(request);
     }
 }

@@ -5,6 +5,8 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+
+
 @Entity
 @Table(name = "claims")
 @Getter
@@ -19,14 +21,16 @@ public class Claim {
     private Long id;
 
     private Long userId;
+private String vehicleNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "vehicle_id")
-    private Vehicle vehicle;
+    private String policyNumber;
+    // @ManyToOne
+    // @JoinColumn(name = "vehicle_id")
+    // private Vehicle vehicle;
 
-    @ManyToOne
-    @JoinColumn(name = "policy_id")
-    private Policy policy;
+    // @ManyToOne
+    // @JoinColumn(name = "policy_id")
+    // private Policy policy;
 
     private LocalDate incidentDate;
 
