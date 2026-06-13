@@ -20,17 +20,16 @@ public class Claim {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
+    private String claimNumber;
+
     private Long userId;
-private String vehicleNumber;
+
+    private String vehicleNumber;
 
     private String policyNumber;
-    // @ManyToOne
-    // @JoinColumn(name = "vehicle_id")
-    // private Vehicle vehicle;
 
-    // @ManyToOne
-    // @JoinColumn(name = "policy_id")
-    // private Policy policy;
+    private Double claimAmount;
 
     private LocalDate incidentDate;
 
@@ -39,7 +38,10 @@ private String vehicleNumber;
     @Column(length = 1000)
     private String description;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private ClaimStatus status;
 
     private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

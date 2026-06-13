@@ -1,8 +1,10 @@
 package claimservice.entity;
 
 public enum ClaimStatus {
-   SUBMITTED,
-    IN_REVIEW,
+   CREATED,
+    DOCUMENTS_PENDING,
+    DOCUMENTS_UPLOADED,
+    UNDER_REVIEW,
     APPROVED,
-    REJECTED
+    REJECTED 
 }
